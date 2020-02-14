@@ -1,0 +1,12 @@
+{
+    "name": "schktjm/hello-world",
+    "description": "php hello world",
+    "type": "project",
+    "authors": [
+        {
+            "name": "schktjm",
+            "email": "si2.o.mjt@gmail.com"
+        }
+    ],
+    "require": {}
+}
