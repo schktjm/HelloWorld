@@ -3,10 +3,10 @@
 namespace Views;
 
 class Form {
-    public function showForm() {
+    public function __invoke() {
 
         ob_start(); ?>
-<form action="result.php" method="post">
+<form action="/result" method="post">
 <input type="text" name="input" value="" size="30" />
 <input type="submit" value="submit" >
 </form>

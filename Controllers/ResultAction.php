@@ -4,13 +4,15 @@ namespace Controllers;
 use Psr\Http\Message\ResponseInterface;
 use Psr\Http\Message\ServerRequestInterface;
 
-class IndexAction {
+class ResultAction {
     public function __invoke(ServerRequestInterface $req, array $args) {
         $response = new \Zend\Diactoros\Response();
 
-        $form = new \Views\Form;
+        $result = new \Views\Result;
 
-        $response->getBody()->write($form());
+        $text = htmlspecialchars($_POST['input']);
+
+        $response->getBody()->write($result($text));
         return $response;
     }
 }
