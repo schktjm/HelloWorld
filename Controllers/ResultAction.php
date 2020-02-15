@@ -10,9 +10,12 @@ class ResultAction {
 
         $result = new \Views\Result;
 
-        $text = htmlspecialchars($_POST['input']);
+        $prams = (array)$req->getParsedBody();
+        if (isset($prams['input'])) {
+            $text = (string)$prams['input'];
+            $response->getBody()->write($result($text));
+        }
 
-        $response->getBody()->write($result($text));
         return $response;
     }
 }
