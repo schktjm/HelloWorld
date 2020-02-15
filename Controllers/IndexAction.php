@@ -7,7 +7,15 @@ use Psr\Http\Message\ServerRequestInterface;
 class IndexAction {
     public function __invoke(ServerRequestInterface $req, array $args) {
         $response = new \Zend\Diactoros\Response();
-        $response->getBody()->write('<h1>Hello</h1>');
+        $message = 'hello';
+        if(!is_null($args['hello'])) {
+            $message = (string)$args['hello'];
+        }
+
+        $view = new \Views\Hello;
+        $content = $view->getHello();
+
+        $response->getBody()->write($content);
         return $response;
     }
 }
