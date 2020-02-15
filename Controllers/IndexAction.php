@@ -13,7 +13,7 @@ class IndexAction {
         }
 
         $view = new \Views\Hello;
-        $content = $view->getHello();
+        $content = $view->getHello("world");
 
         $response->getBody()->write($content);
         return $response;
