@@ -23,6 +23,7 @@ $router->get('/', function (ServerRequestInterface $request, array $args){
 
 $router->get('/index', Controllers\IndexAction::class);
 $router->post('/result', Controllers\ResultAction::class);
+$router->get('/show', Controllers\ShowAction::class);
 
 $response = $router->dispatch($request);
 (new Zend\HttpHandlerRunner\Emitter\SapiEmitter)->emit($response);
