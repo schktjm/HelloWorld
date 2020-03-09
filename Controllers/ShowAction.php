@@ -10,7 +10,7 @@ class ShowAction {
 
         $view = new \Views\ShowOembed;
 
-        $response->getBody()->write($view('https://www.youtube.com/watch?v=gc0_Acq8dV4'));
+        $response->getBody()->write($view());
         return $response;
     }    
 }
