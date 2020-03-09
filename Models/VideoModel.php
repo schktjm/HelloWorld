@@ -1,11 +1,9 @@
 <?php
-namespace Views;
+namespace Models;
 
-
-class ShowOembed {
-    public function __invoke(){
+class VideoModel {
+    public function convertOembed(string $url){
         $base_url = 'http://www.youtube.com';
-        $url = 'http://www.youtube.com/watch?v=gc0_Acq8dV4';
 
         
         $client = new \GuzzleHttp\Client([
@@ -18,11 +16,8 @@ class ShowOembed {
         $response = $client->request($method, $path . $url, $options);
 
         $json = \json_decode($response->getBody());
-        // var_dump($json);
 
-
-        ob_start();
-        echo $json->{'html'};
-        return ob_get_clean();
+        return (string)$json->{'html'};
     }
+    
 }
