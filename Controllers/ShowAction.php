@@ -12,7 +12,7 @@ class ShowAction {
         $view = new \Views\ShowContent;
 
         $url = 'http://www.youtube.com/watch?v=gc0_Acq8dV4';
-        $response->getBody()->write($view($model->convertOembed($url)));
+        $response->getBody()->write($view($model($url)));
         return $response;
     }    
 }
